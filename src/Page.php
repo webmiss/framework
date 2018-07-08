@@ -11,9 +11,6 @@ class Page{
 	static function get($config=[]){
 		// 必须参数
 		if(!isset($config['model']))die('请传入模型');
-		// 命名空间
-		$namespace = isset($config['namespace'])?$config['namespace']:'app\\modules\\'.MODULE.'\\model\\';
-		$config['model'] = $namespace.$config['model'];
 		// 默认值
 		$field = isset($config['field'])?$config['field']:'*';
 		$where = isset($config['where'])?$config['where']:'';
