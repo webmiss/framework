@@ -24,12 +24,15 @@ class Application{
 	 */
 	static function getContent(){
 		$url = self::getUrl();
+		// 常量
+		define('MODULE',$url['m']);
+		define('CONTROLLER',$url['c']);
+		define('ACTION',$url['a']);
 		// 安全防范
-		$m = ucwords($url['m']);
 		$c = ucwords($url['c']).'Controller';
 		$a = $url['a'].'Action';
 		// 控制器
-		$c =self::$config['modules'][$url['m']]['namespace'].'\\'.$c;
+		$c =self::$config['modules'][$url['m']]['namespace'].'\\Controller\\'.$c;
 		// 是否存在类
 		if(!class_exists($c))die('类：" '.$c.' "不存在！');
 		$app = new $c();

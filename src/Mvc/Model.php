@@ -1,5 +1,5 @@
 <?php
-namespace Webmis;
+namespace Webmis\Mvc;
 
 /* 数据库类 */
 class Model {
@@ -139,7 +139,7 @@ class Model {
 	static private function conn(){
 		try {
 			// 配置文件
-			self::$config = require APP.'database.php';
+			self::$config = require APP_PATH.'/config/database.php';
 			$option = [
 				// 长链接
 				\PDO::ATTR_PERSISTENT=>self::$config['persistent'],
